@@ -12,12 +12,7 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: #f9f9f9;
-      color: #333;
-      line-height: 1.5;
-    }
+    body { font-family: 'Roboto', sans-serif; color: #333; line-height: 1.5; background: #f9f9f9; }
 
     :root {
       --ferrugem: #b23e32;
@@ -28,176 +23,129 @@
     header {
       background: var(--ferrugem);
       color: #fff;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
       padding: 0.75rem 1rem;
     }
-
     header h1 {
-      font-size: 1.25rem;
-      cursor: pointer;
+      font-size: 1.25rem; cursor: pointer;
     }
-
     nav {
-      display: flex;
-      align-items: center;
+      display: flex; align-items: center;
     }
-
     nav ul {
-      display: flex;
-      gap: 1rem;
+      display: flex; gap: 1rem;
     }
-
     nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.9rem;
-      transition: opacity 0.2s;
+      color: #fff; text-decoration: none; font-weight: 700; font-size: 0.9rem;
+      transition: opacity .2s;
     }
-
-    nav a:hover {
-      opacity: 0.8;
-    }
+    nav a:hover { opacity: 0.8; }
 
     .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      cursor: pointer;
+      display: none; flex-direction: column; gap: 4px; cursor: pointer;
     }
-
     .hamburger span {
-      width: 25px;
-      height: 3px;
-      background: #fff;
-      border-radius: 2px;
+      width: 25px; height: 3px; background: #fff; border-radius: 2px;
     }
-
-    @media (max-width: 600px) {
-      nav ul {
-        display: none;
-        position: absolute;
-        top: 100%;
-        right: 1rem;
-        background: var(--ferrugem);
-        flex-direction: column;
-        padding: 0.5rem;
-        border-radius: 4px;
-      }
-
-      nav ul.show {
-        display: flex;
-      }
-
-      .hamburger {
-        display: flex;
-      }
+    @media(max-width:600px){
+      nav ul { display:none; position:absolute; top:100%; right:1rem;
+               background:var(--ferrugem); flex-direction:column; padding:0.5rem; border-radius:4px; }
+      nav ul.show { display:flex; }
+      .hamburger { display:flex; }
     }
 
     .hero {
+      height: 100vh;
       background: url('oficina_yuri.png') center/cover no-repeat;
-      height: 640px;
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
     }
-
     .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.4);
+      content: ''; position: absolute; inset: 0;
+      background: rgba(0,0,0,0.5);
     }
-
     .hero h2 {
-      position: relative;
-      color: #fff;
-      font-size: 2rem;
-      text-align: center;
-      padding: 0 1rem;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+      position: relative; color: #fff; font-size: 2rem; text-align: center;
+      padding: 0 1rem; text-shadow: 0 2px 6px rgba(0,0,0,0.5);
     }
 
     section {
-      padding: 3rem 1rem;
-      max-width: 900px;
-      margin: 0 auto;
+      padding: 3rem 1rem; max-width: 900px; margin: 0 auto;
     }
-
     h2 {
-      color: var(--ferrugem);
-      font-size: 1.75rem;
-      text-align: center;
-      margin-bottom: 1.5rem;
+      color: var(--ferrugem); font-size: 1.75rem; text-align: center; margin-bottom: 1.5rem;
     }
 
     .servicos .item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 1rem;
+      display: flex; align-items: center; margin-bottom: 1rem;
     }
-
     .servicos .item span {
-      display: inline-block;
-      width: 2rem;
-      text-align: center;
-      margin-right: 0.5rem;
-      font-size: 1.5rem;
-      color: var(--amarelo);
+      display: inline-block; width: 2rem; text-align: center; margin-right: 0.5rem;
+      font-size: 1.5rem; color: var(--amarelo);
     }
 
     .testemunhos blockquote {
-      border-left: 4px solid var(--ferrugem);
-      padding-left: 1rem;
-      font-style: italic;
+      border-left: 4px solid var(--ferrugem); padding-left: 1rem; font-style: italic;
       margin-bottom: 1.5rem;
     }
-
     .testemunhos cite {
-      display: block;
-      text-align: right;
-      font-size: 0.9rem;
-      opacity: 0.7;
+      display: block; text-align: right; font-size: 0.9rem; opacity: 0.7;
     }
 
     .mapa iframe {
-      width: 100%;
-      height: 350px;
-      border: 0;
-      border-radius: 4px;
+      width: 100%; height: 350px; border: 0; border-radius: 4px;
+      loading: lazy;
     }
 
     .whatsapp-flutuante {
-      position: fixed;
-      bottom: 1rem;
-      right: 1rem;
-      width: 60px;
-      height: 60px;
-      background: #25D366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      position: fixed; bottom: 1rem; right: 1rem; width: 60px; height: 60px;
+      background: #25D366; border-radius: 50%; display: flex;
+      align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.3);
       z-index: 50;
     }
-
-    .whatsapp-flutuante img {
-      width: 32px;
-    }
+    .whatsapp-flutuante img { width: 32px; }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
   <header>
     <h1 onclick="window.scrollTo({top:0,behavior:'smooth'})">Na Sombra do Balança</h1>
     <nav>
       <div class="hamburger" onclick="document.querySelector('nav ul').classList.toggle('show')">
-        <span></
+        <span></span><span></span><span></span>
+      </div>
+      <ul>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#testemunhos">Avaliações</a></li>
+        <li><a href="#mapa">Localização</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h2>Oficina na R. Frederico Silva, 87</h2>
+  </div>
+
+  <section id="servicos" class="servicos">
+    <h2>Serviços</h2>
+    <div class="item"><span>🔧</span> Mecânica Geral</div>
+    <div class="item"><span>🛞</span> Suspensão e Freios</div>
+    <div class="item"><span>🛢️</span> Troca de Óleo</div>
+    <div class="item"><span>⚙️</span> Revisão Completa</div>
+  </section>
+
+  <section id="testemunhos" class="testemunhos">
+    <h2>Avaliações</h2>
+    <blockquote>
+      “Conserto rapidíssimo, salvou meu dia!”<br><cite>– Motorista Uber</cite>
+    </blockquote>
+    <blockquote>
+      “Preço honesto e atendimento nota 10.”<br><cite>– Taxista</cite>
+    </blockquote>
+  </section>
+
+  <section id="mapa" class="mapa">
+    <h2>Onde Estamos</h2>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m14!1m
