@@ -1,155 +1,193 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <!-- Meta tags obrigatórias -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-
+  <meta name="description" content="Oficina mecânica 'Na Sombra do Balança' em R. Frederico Silva, 87 – serviços, avaliações e contato no WhatsApp.">
   <title>Na Sombra do Balança</title>
 
-  <!-- ==================================
-       Estilos CSS (podem ir num arquivo externo)
-       ================================== -->
-  <style>
-    /* 1) Reset básico */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-    /* 2) Fonte e comportamento de scroll suave */
-    html {
-      scroll-behavior: smooth;
-    }
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', sans-serif;
+      background: #f9f9f9;
       color: #333;
       line-height: 1.5;
     }
 
-    /* 3) Variáveis de cor da marca */
     :root {
-      --cor-ferrugem: #b23e32;
-      --cor-concreto: #eceaea;
-      --cor-amarelo: #d4a028;
+      --ferrugem: #b23e32;
+      --concreto: #eceaea;
+      --amarelo: #d4a028;
     }
 
-    /* 4) Header e menu de navegação */
     header {
-      background: var(--cor-ferrugem);
+      background: var(--ferrugem);
       color: #fff;
-      padding: 1rem;
-      text-align: center;
       position: sticky;
       top: 0;
-      z-index: 10;
-    }
-    header nav ul {
-      list-style: none;
+      z-index: 100;
       display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 0.5rem;
-    }
-    header nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 0.9rem;
-      opacity: 0.9;
-      transition: opacity .2s;
-    }
-    header nav a:hover {
-      opacity: 1;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
     }
 
-    /* 5) Hero/banner principal */
+    header h1 {
+      font-size: 1.25rem;
+      cursor: pointer;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+    }
+
+    nav a:hover {
+      opacity: 0.8;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 600px) {
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 1rem;
+        background: var(--ferrugem);
+        flex-direction: column;
+        padding: 0.5rem;
+        border-radius: 4px;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
     .hero {
-      height: 60vh;
-      background: url('base-predio.jpg') center/cover no-repeat;
+      background: url('oficina_yuri.png') center/cover no-repeat;
+      height: 640px;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
     }
-    .hero .overlay {
+
+    .hero::after {
+      content: '';
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.4);
+      background: rgba(0, 0, 0, 0.4);
     }
-    .hero h1 {
+
+    .hero h2 {
       position: relative;
       color: #fff;
-      font-size: 2.5rem;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      font-size: 2rem;
+      text-align: center;
+      padding: 0 1rem;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
     }
 
-    /* 6) Seções (Serviços, Depoimentos, Mapa) */
     section {
       padding: 3rem 1rem;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
     }
-    section h2 {
-      color: var(--cor-ferrugem);
-      margin-bottom: 1.5rem;
+
+    h2 {
+      color: var(--ferrugem);
+      font-size: 1.75rem;
       text-align: center;
-      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
     }
 
-    /* 7) Lista de serviços */
     .servicos .item {
       display: flex;
       align-items: center;
       margin-bottom: 1rem;
     }
+
     .servicos .item span {
-      font-size: 1.5rem;
+      display: inline-block;
       width: 2rem;
       text-align: center;
       margin-right: 0.5rem;
-      color: var(--cor-amarelo);
+      font-size: 1.5rem;
+      color: var(--amarelo);
     }
 
-    /* 8) Depoimentos estilizados */
     .testemunhos blockquote {
-      border-left: 4px solid var(--cor-ferrugem);
+      border-left: 4px solid var(--ferrugem);
       padding-left: 1rem;
-      margin-bottom: 1.5rem;
       font-style: italic;
+      margin-bottom: 1.5rem;
     }
+
     .testemunhos cite {
       display: block;
       text-align: right;
-      margin-top: 0.5rem;
       font-size: 0.9rem;
-      opacity: 0.8;
+      opacity: 0.7;
     }
 
-    /* 9) Embed do mapa */
     .mapa iframe {
       width: 100%;
-      height: 300px;
+      height: 350px;
       border: 0;
       border-radius: 4px;
     }
 
-    /* 10) Botão flutuante do WhatsApp */
     .whatsapp-flutuante {
       position: fixed;
       bottom: 1rem;
       right: 1rem;
-      background: #25D366;
       width: 60px;
       height: 60px;
+      background: #25D366;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      z-index: 100;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      z-index: 50;
     }
+
     .whatsapp-flutuante img {
       width: 32px;
     }
@@ -157,77 +195,9 @@
 </head>
 <body>
 
-  <!-- ==================================
-       1) Header + menu âncora
-       ================================== -->
+  <!-- Header -->
   <header>
-    <h1>Na Sombra do Balança</h1>
+    <h1 onclick="window.scrollTo({top:0,behavior:'smooth'})">Na Sombra do Balança</h1>
     <nav>
-      <ul>
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#testemunhos">Avaliações</a></li>
-        <li><a href="#mapa">Localização</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- ==================================
-       2) Hero / banner principal
-       ================================== -->
-  <div class="hero">
-    <div class="overlay"></div>
-    <h1>Oficina na R. Frederico Silva, 87</h1>
-  </div>
-
-  <!-- ==================================
-       3) Seção de Serviços
-       ================================== -->
-  <section id="servicos" class="servicos">
-    <h2>Serviços</h2>
-    <div class="item"><span>🔧</span> Mecânica Geral</div>
-    <div class="item"><span>🛞</span> Suspensão e Freios</div>
-    <div class="item"><span>🛢️</span> Troca de Óleo</div>
-    <div class="item"><span>⚙️</span> Revisão Completa</div>
-  </section>
-
-  <!-- ==================================
-       4) Seção de Depoimentos
-       ================================== -->
-  <section id="testemunhos" class="testemunhos">
-    <h2>Avaliações</h2>
-    <blockquote>
-      “Conserto rapidíssimo, salvou meu dia!”<br>
-      <cite>– Motorista Uber</cite>
-    </blockquote>
-    <blockquote>
-      “Preço honesto e atendimento nota 10.”<br>
-      <cite>– Taxista</cite>
-    </blockquote>
-  </section>
-
-  <!-- ==================================
-       5) Seção de Localização com mapa embed
-       ================================== -->
-  <section id="mapa" class="mapa">
-    <h2>Onde Estamos</h2>
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3674.1234567890123!2d-43.192950!3d-22.906708!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa3922...EXEMPLO_MARKER!2sR.%20Frederico%20Silva%2C%2087!5e0!3m2!1spt-BR!2sbr!4v1690765432100" 
-      allowfullscreen="" 
-      loading="lazy">
-    </iframe>
-  </section>
-
-  <!-- ==================================
-       6) Botão flutuante do WhatsApp
-       ================================== -->
-  <a href="https://wa.me/5521981512107" 
-     class="whatsapp-flutuante" 
-     target="_blank" 
-     title="Fale conosco no WhatsApp">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-         alt="WhatsApp">
-  </a>
-
-</body>
-</html>
-
+      <div class="hamburger" onclick="document.querySelector('nav ul').classList.toggle('show')">
+        <span></
