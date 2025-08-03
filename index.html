@@ -1,30 +1,233 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Oficina Balança Mas Não Cai</title>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJSRV29TZN"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Meta tags obrigatórias -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  gtag('config', 'G-KJSRV29TZN');
-</script>
-  <link rel="stylesheet" href="style.css" />
+  <title>Na Sombra do Balança</title>
+
+  <!-- ==================================
+       Estilos CSS (podem ir num arquivo externo)
+       ================================== -->
+  <style>
+    /* 1) Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* 2) Fonte e comportamento de scroll suave */
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    /* 3) Variáveis de cor da marca */
+    :root {
+      --cor-ferrugem: #b23e32;
+      --cor-concreto: #eceaea;
+      --cor-amarelo: #d4a028;
+    }
+
+    /* 4) Header e menu de navegação */
+    header {
+      background: var(--cor-ferrugem);
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+    }
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      transition: opacity .2s;
+    }
+    header nav a:hover {
+      opacity: 1;
+    }
+
+    /* 5) Hero/banner principal */
+    .hero {
+      height: 60vh;
+      background: url('base-predio.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .hero .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+    }
+    .hero h1 {
+      position: relative;
+      color: #fff;
+      font-size: 2.5rem;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
+
+    /* 6) Seções (Serviços, Depoimentos, Mapa) */
+    section {
+      padding: 3rem 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    section h2 {
+      color: var(--cor-ferrugem);
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+
+    /* 7) Lista de serviços */
+    .servicos .item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .servicos .item span {
+      font-size: 1.5rem;
+      width: 2rem;
+      text-align: center;
+      margin-right: 0.5rem;
+      color: var(--cor-amarelo);
+    }
+
+    /* 8) Depoimentos estilizados */
+    .testemunhos blockquote {
+      border-left: 4px solid var(--cor-ferrugem);
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .testemunhos cite {
+      display: block;
+      text-align: right;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* 9) Embed do mapa */
+    .mapa iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      border-radius: 4px;
+    }
+
+    /* 10) Botão flutuante do WhatsApp */
+    .whatsapp-flutuante {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: #25D366;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      z-index: 100;
+    }
+    .whatsapp-flutuante img {
+      width: 32px;
+    }
+  </style>
 </head>
 <body>
 
+  <!-- ==================================
+       1) Header + menu âncora
+       ================================== -->
   <header>
-    <h1>Oficina Balança Mas Não Cai</h1>
-    <p class="slogan">Pode confiar: aqui o carro sai firme!</p>
-    <div class="building"></div>
-    <div class="cta">
-      <a href="https://wa.me/5521997083434" target="_blank">Agendar pelo WhatsApp</a>
-    </div>
+    <h1>Na Sombra do Balança</h1>
+    <nav>
+      <ul>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#testemunhos">Avaliações</a></li>
+        <li><a href="#mapa">Localização</a></li>
+      </ul>
+    </nav>
   </header>
+
+  <!-- ==================================
+       2) Hero / banner principal
+       ================================== -->
+  <div class="hero">
+    <div class="overlay"></div>
+    <h1>Oficina na R. Frederico Silva, 87</h1>
+  </div>
+
+  <!-- ==================================
+       3) Seção de Serviços
+       ================================== -->
+  <section id="servicos" class="servicos">
+    <h2>Serviços</h2>
+    <div class="item"><span>🔧</span> Mecânica Geral</div>
+    <div class="item"><span>🛞</span> Suspensão e Freios</div>
+    <div class="item"><span>🛢️</span> Troca de Óleo</div>
+    <div class="item"><span>⚙️</span> Revisão Completa</div>
+  </section>
+
+  <!-- ==================================
+       4) Seção de Depoimentos
+       ================================== -->
+  <section id="testemunhos" class="testemunhos">
+    <h2>Avaliações</h2>
+    <blockquote>
+      “Conserto rapidíssimo, salvou meu dia!”<br>
+      <cite>– Motorista Uber</cite>
+    </blockquote>
+    <blockquote>
+      “Preço honesto e atendimento nota 10.”<br>
+      <cite>– Taxista</cite>
+    </blockquote>
+  </section>
+
+  <!-- ==================================
+       5) Seção de Localização com mapa embed
+       ================================== -->
+  <section id="mapa" class="mapa">
+    <h2>Onde Estamos</h2>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3674.1234567890123!2d-43.192950!3d-22.906708!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa3922...EXEMPLO_MARKER!2sR.%20Frederico%20Silva%2C%2087!5e0!3m2!1spt-BR!2sbr!4v1690765432100" 
+      allowfullscreen="" 
+      loading="lazy">
+    </iframe>
+  </section>
+
+  <!-- ==================================
+       6) Botão flutuante do WhatsApp
+       ================================== -->
+  <a href="https://wa.me/5521981512107" 
+     class="whatsapp-flutuante" 
+     target="_blank" 
+     title="Fale conosco no WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+         alt="WhatsApp">
+  </a>
 
 </body>
 </html>
+
