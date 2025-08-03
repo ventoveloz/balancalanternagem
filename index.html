@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Oficina mecânica Na Sombra do Balança 📍 na R. Frederico Silva, 87 – serviços, avaliações e contato no WhatsApp." />
   <title>Na Sombra do Balança</title>
-  <link href="style.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet" />
   <style>
     body {
@@ -42,10 +41,6 @@
       font-weight: bold;
     }
 
-    .hero {
-      padding: 0;
-    }
-
     .hero img {
       width: 100%;
       display: block;
@@ -61,9 +56,25 @@
       margin-bottom: 10px;
     }
 
-    .testimonials {
-      background: #fff;
-      padding: 20px;
+    .btn-servico {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+
+    .btn-servico a {
+      background: #b03a2e;
+      color: white;
+      padding: 10px 15px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .btn-servico a:hover {
+      background: #8a2b21;
     }
 
     .testimonial {
@@ -86,20 +97,19 @@
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     }
 
-    iframe {
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
 <body>
-
   <nav class="navbar">
     <h1>Na Sombra do Balança</h1>
     <ul>
-      <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#avaliacoes">Avaliações</a></li>
-      <li><a href="#localizacao">Localização</a></li>
+      <li><a href="#lanternagem">Lanternagem</a></li>
+      <li><a href="#pintura">Pintura</a></li>
+      <li><a href="#servicos-rapidos">Rápidos</a></li>
+      <li><a href="#orcamento">Orçamento</a></li>
     </ul>
   </nav>
 
@@ -107,17 +117,31 @@
     <img src="oficina_yuri.png" alt="Oficina na R. Frederico Silva, 87" />
   </section>
 
-  <section class="section" id="localizacao">
-    <h2>📍 Onde Estamos</h2>
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.2479845975733!2d-43.19653928461347!3d-22.902449043253977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997ef6e637c8a5%3A0x15ed08a14f0b60ae!2sR.%20Frederico%20Silva%2C%2087%20-%20Centro%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%2020200-240!5e0!3m2!1spt-BR!2sbr!4v1697054652391!5m2!1spt-BR!2sbr"
-      width="100%"
-      height="300"
-      style="border:0;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+  <div class="btn-servico">
+    <a href="#lanternagem">Lanternagem</a>
+    <a href="#pintura">Pintura</a>
+    <a href="#servicos-rapidos">Serviços Rápidos</a>
+    <a href="#orcamento">Orçamento</a>
+  </div>
+
+  <section class="section" id="lanternagem">
+    <h2>Lanternagem</h2>
+    <p>Reparos em lataria e funilaria com acabamento profissional e agilidade.</p>
+  </section>
+
+  <section class="section" id="pintura">
+    <h2>Pintura</h2>
+    <p>Serviços de pintura automotiva completos, retoques e polimento.</p>
+  </section>
+
+  <section class="section" id="servicos-rapidos">
+    <h2>Serviços Rápidos</h2>
+    <p>Troca de peças, instalação de itens e soluções imediatas para o seu carro.</p>
+  </section>
+
+  <section class="section" id="orcamento">
+    <h2>Orçamento Gratuito</h2>
+    <p>Envie fotos ou traga seu carro. Avaliação sem compromisso.</p>
   </section>
 
   <section class="section" id="avaliacoes">
@@ -127,14 +151,12 @@
     <div class="testimonial">"Melhor oficina da região!"</div>
   </section>
 
-  <section class="section" id="servicos">
-    <h2>Serviços</h2>
-    <ul>
-      <li>Lanternagem</li>
-      <li>Pintura</li>
-      <li>Serviços rápidos</li>
-      <li>Orçamento gratuito</li>
-    </ul>
+  <section class="section" id="localizacao">
+    <h2>📍 Oficina na R. Frederico Silva, 87</h2>
+    <p>Centro, Rio de Janeiro - RJ</p>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3674.1234567890123!2d-43.192950!3d-22.906708!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa3922...EXEMPLO_MARKER!2sR.%20Frederico%20Silva%2C%2087!5e0!3m2!1spt-BR!2sbr!4v1690765432100"
+      width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
   </section>
 
   <a class="whatsapp-float" href="https://wa.me/5521997083434" target="_blank">
@@ -142,4 +164,3 @@
   </a>
 </body>
 </html>
-
